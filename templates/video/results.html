@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        {% for video in videos %}
+        <div class="col-sm-3 mt-3">
+            <a href="{% url 'movie' video.id %}">
+                <div class="content_img zoom" >
+                    <img src="{{ video.img }}" alt="Cover">
+                    <div>{{ video.title }} {{ video.year }} <br> ☆ {{video.rating}}</div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div><br><br>
+
+
+
+{% endblock content %}
